@@ -1,5 +1,8 @@
 'use strict';
 /*
+//Initial alert to introduce the user to my page.
+alert('Welcome to my page! Let\'s answer a few questions.');
+
 //This was my first method of doing yes answers before I was taught how to use an array.
 //Different variables for a possible yes answer.
 var answer = 'y';
@@ -17,7 +20,7 @@ if (hair === cap_answer || hair === answer || hair === answer_upper || hair === 
   alert('What a shame! My hair color is black.');
 }
 
-console.log('User entered ' + hair + ' in response to the first question.');
+console.log('Response to Question 1 was ' + hair + '.');
 
 //Defines variables that includes the possible yes or no answers in arrays!! Yay!
 
@@ -35,7 +38,7 @@ if (yesAnswers.includes(country)) {
   alert('I hope you didnt say Australia, because that is definitely wrong!');
 }
 
-console.log('User entered ' + country + ' in response to the second question.');
+console.log('Response to Question 2 was ' + country + '.');
 
 //Third variable for board games question
 var game = prompt('Question 3: Is Monopoly my favorite board game?').toLowerCase();
@@ -48,7 +51,7 @@ if (yesAnswers.includes(game)) {
   alert('No problem! Find out my favorite game at the end!');
 }
 
-console.log('User entered ' + game + ' in response to the third question.');
+console.log('Response to Question 3 was ' + game + '.');
 
 //This is the fourth question, about cherries.
 var cherries = prompt('Question 4: Do you think I have ever lived on an orchard?').toLowerCase();
@@ -61,7 +64,7 @@ if (yesAnswers.includes(cherries)) {
   alert('Not sure what you mean, but I definitely have.');
 }
 
-console.log('User entered ' + cherries + ' in response to the fourth question.');
+console.log('Response to Question 4 was ' + cherries + '.');
 
 //This is the last question, about lunch.
 var lunch = prompt('Question 5: Would I have a steak for lunch?').toLowerCase();
@@ -74,26 +77,30 @@ if (yesAnswers.includes(lunch)) {
   alert('Well, I would probably choose poke anyway.');
 }
 
-console.log('User entered ' + lunch + ' in response to the last question.');
-*/
-
+console.log('Response to Question 5 was ' + lunch + '.');
 
 //Sixth question: Guess a number
-//Question: How many plants do I have in my house?
-//Answer: 11
-//Response: You're right!, too high, too low
-//Opportunities to answer: 4
+// Planning
+// Question: How many plants do I have in my house?
+// Answer: 11
+// Response: You're right!, too high, too low
+// Opportunities to answer: 4
 
-//Variable plants is the question box that will pop up.
+//Variable plants is the question box that will pop up for question 6.
 var plants = prompt('Question 6: How many plants do I have in my house? Please enter a number.');
+//This is the correct answer. 
 var plantAnswer = 11;
+//Index of how many guesses. 
 var guesses = 1;
 
-//A while loop that makes sure the user enters a guess
+//A while loop that makes sure the user enters a guess, otherwise prompts them to submit a guess.
+//This only works at the beginning though. Need to integrate it into the while loop somehow.
 while(plants === '' || plants === null){
   plants = prompt('Please have a guess!');
 }
 
+//Loop to show too high or too low message for guess.
+//Having trouble getting something to show something different when it is a correct answer. 
 while(guesses < 4){
   console.log('Response ' + guesses + ' to Question 6 was ' + plants + '.');
   if (plants < plantAnswer){
@@ -105,13 +112,74 @@ while(guesses < 4){
   }
   guesses++;
 }
+//This console logs the last submission.
 console.log('Response ' + guesses + ' to Question 6 was ' + plants + '.');
+
+//Last alert to tell the user there are no more guesses.
 alert('That\'s all the guesses you get!');
 
-//Logging on what number the user entered
+*/
+
+//Question 7: Multiple correct answers, stored in array
+//User gets 6 tries
+//Displays correct answer when gets it correct OR used up all tries
+
+//This is an array of my languages
+var my_languages = ['english', 'chinese', 'french']; 
+var i = 1;
+//This is the message to show if the user gets the language correct or they use up the tries.
+var possible_languages = 'The correct languages are English, Chinese, and French!';
+
+//This is the prompt for question 7, making sure it's in lower case to match the array.
+var language_anycase = prompt('Question 7: Which languages do I speak? Have a guess!');
+var language = language_anycase.toLowerCase();
+
+//This is a loop to display different messages depending on what the response is.
+//I can't get this to break after a correct response, it just gets stuck in the loop until the tries are over.
+//Need to fix this
+do {
+  console.log('Response ' + i + ' to Question 7 was ' + language + '.');
+  switch(language){
+  case my_languages[0]:
+    alert('Tally ho! ' + possible_languages);
+    break;
+  case my_languages[1]:
+    alert('Ni hao! ' + possible_languages);
+    break;
+  case my_languages[2]:
+    alert('Bonjour! ' + possible_languages);
+    break;
+  default :
+    language = prompt('Unfortunately not. Try again?'); 
+  }
+  i++;
+} while (i < 3);
+//Logs the final response. 
+console.log('Response ' + i + ' to Question 7 was ' + language + '.');
+//Final message before it goes to the home page.
+alert('All done!' + possible_languages);
 
 
 
+
+/*
+while (i < 3){
+  switch(my_languages){
+  case 'english' :
+    alert(possible_languages);
+    break;
+  case 'chinese' :
+    alert(possible_languages);
+    break;
+  case 'french' :
+    alert(possible_languages);
+    break;
+  default :
+    language = prompt('Unfortunately not. Try again?');
+  }
+  i++;
+}
+*/
 
 
 
