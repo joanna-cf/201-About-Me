@@ -194,7 +194,7 @@ alert('All done!' + possible_languages);
 alert(user + ', you got ' + correct.length + ' out of 7 correct! Good job!');
 console.log('The total number of correct answers is ' + correct.length + '. ' + user + ' got ' + correct + ' correct.');
 
-/* Nicholas' code review from Lab 3
+/* Nicholas' Lab 3 Code review
 
 Logging tries
 alert('you look ' + ++i + ' tries');
@@ -222,40 +222,47 @@ If we have to use it: put a button, if click button, then quiz pops up
 Nick's code from scratch
 While loops can have more complex conditionals than for loops
 
-var correct = ['f', 'w'];
+var answers = ['f', 'w', 'c', 'h'];
 // do this so we can count down the number of guesses left
-var correct_guesses = [];
+var past_correct_guesses = [];
 var guesses = 6;
 var answered_correct = false;
 
 //while guesses left and use not answered correctly yet (answered correct === false)
-while (guesses > 0 && answered_correct === false}{
+while (guesses > 0 && answered_correct === false}{ //every single guess
+  debugger;
   var state_lived = prompt('You have ' + guesses + ' guesses left. What is...');  
+  var is_a_cheater = false;
 
-  // TODO: don't check florida again
+  //DONE: are they are cheater e.g. check florida twice
+  for (var k = 0; k < past_correct_guesses. length; k++){
+    if(state_lived === past_correct_guesses [k]){
+      is_a_cheater = true;
+    }
+  }
+
+  // DONE: don't check florida again
   // TODO: check washington
-  if(state_lived === correct[0]){ 
-    alert('Good job, you have 1 more state to find');
-    guesses--;
-  } else {
+  for (var j = 0; j <answers.length; j++){ //checks every single answer
+    // check for correct answer
+    if(state_lived === answers[j] && is_a_cheater === false){  //if one matches, triggers statement
+      alert('Good job, you have 1 more state to find');
+      past_correct_guesses.push(state_lived);
+      guesses--;
+    }
+  }
+
+ if (is_a_cheater){
+    alert('stop cheater, you lose two guesses');
+    guesses -= 2;
+  }
+  
+  //TODO: to fix
+  else {
     alert('nope, try again');
     guesses--;
   }
-
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
+}
 */
 
 /* Nicholas lab 3 demo
@@ -290,7 +297,7 @@ if(guesses <3){
 
 */
 
-/*  Nicholas' code review from Lab 2
+/*  Nicholas' Lab 2 Code Review
 
 var sweaters = prompt('Do I have 5 sweaters?');
 var lowerSweaters = sweaters.toLowerCase();
