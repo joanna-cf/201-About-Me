@@ -1,5 +1,14 @@
 'use strict';
 
+/*Things to do
+True false statements to kick out of the while loop, more complicated conditions
+Integrating the '' and null into the loops
+Putting the first 5 questions ino an array
+Random number?
+Reorganize variables for Q7
+Find a separator function to put spaces between list between array items
+*/
+
 //Initial alert to introduce the user to my page and get their name.
 var user = prompt('Hi there! What\'s your name?');
 alert('Well, ' + user + ', welcome to my page! I\'ve made some questions so you can get to know a little about me! Let\'s get started.');
@@ -87,7 +96,7 @@ if (yesAnswers.includes(lunch)) {
 
 console.log('Response to Question 5 was ' + lunch + '.');
 
-//Sixth question: Guess a number
+// QUESTION 6: Guess a number
 // Planning
 // Question: How many plants do I have in my house?
 // Answer: Random?
@@ -108,7 +117,6 @@ while(plants === '' || plants === null){
   plants = prompt('Please have a guess!');
 }
 
-
 //Loop to show too high or too low message for guess.
 //Having trouble getting something to show something different when it is a correct answer. 
 while (guesses < 4) {
@@ -118,9 +126,10 @@ while (guesses < 4) {
   } else if (plants > plantAnswer){
     plants = prompt('That\'s too high. Have another try.');
   } else if (plants == plantAnswer){
-    plants = prompt('Perhaps. Have another try.');
+    plants = prompt('That\'s right!');
     correct.push('Q6');
     console.log(user + ' got Question 6 correct.');
+    break; //or use i = 4;
   } else {
     plants = prompt('Maybe. Have another try.');
   }
@@ -153,19 +162,19 @@ while (i < 6) {
   console.log('Response ' + i + ' to Question 7 was ' + language + '.');
   switch(language){
   case my_languages[0]:
-    alert('Tally ho! ');
+    alert('Tally ho!');
     correct.push('Q7');
     console.log(user + ' got Question 7 correct.');
     i = 9;
     break;
   case my_languages[1]:
-    alert('Ni hao! ');
+    alert('Ni hao!');
     correct.push('Q7');
     console.log(user + ' got Question 7 correct.');
     i = 9;
     break;
   case my_languages[2]:
-    alert('Bonjour! ');
+    alert('Bonjour!');
     correct.push('Q7');
     console.log(user + ' got Question 7 correct.');
     i = 9;
@@ -185,27 +194,71 @@ alert('All done!' + possible_languages);
 alert(user + ', you got ' + correct.length + ' out of 7 correct! Good job!');
 console.log('The total number of correct answers is ' + correct.length + '. ' + user + ' got ' + correct + ' correct.');
 
+/* Nicholas' code review from Lab 3
+
+Logging tries
+alert('you look ' + ++i + ' tries');
+
+Have HTML appear before all prompts:
+Best practice: put it on the page, don't pop it up.
+If we have to use it: put a button, if click button, then quiz pops up
+
+      var guessed_florida = false; //haven't guessed florida correct yet
+      //need something to check
+
+      if (seven === 'florida' && guessed_florida === false){
+        alert();
+        guessed_florida = true; // won't be able to guess this again, has it has become true, won't go into this code block again
+      } else if (seven === 'washington' && guessed_washington === false){
+        alert();
+        guessed_washington = true;
+      }
+
+      if (guessed_florida && guessed_washington){
+        alert();
+        break;
+      }
+
+Nick's code from scratch
+While loops can have more complex conditionals than for loops
+
+var correct = ['f', 'w'];
+// do this so we can count down the number of guesses left
+var correct_guesses = [];
+var guesses = 6;
+var answered_correct = false;
+
+//while guesses left and use not answered correctly yet (answered correct === false)
+while (guesses > 0 && answered_correct === false}{
+  var state_lived = prompt('You have ' + guesses + ' guesses left. What is...');  
+
+  // TODO: don't check florida again
+  // TODO: check washington
+  if(state_lived === correct[0]){ 
+    alert('Good job, you have 1 more state to find');
+    guesses--;
+  } else {
+    alert('nope, try again');
+    guesses--;
+  }
+
+
+
+})
 
 
 
 
 
 
-/*  Nicholas' code demo
 
-var sweaters = prompt('Do I have 5 sweaters?');
-var lowerSweaters = sweaters.toLowerCase();
 
-if (sweaters === 'yes') {
-  alert('That\'s right!');
-} else if (sweaters === 'no') {
-  alert('No way!');
-} else {
-  alert('Please answer the question.');
-}
+
+
+
 */
 
-/* Nicholas pre-lab demo
+/* Nicholas lab 3 demo
 Question that accepts a number
 see if answer was too high or two low
 ask again
@@ -235,4 +288,18 @@ if(guesses <3){
   alert('bad job');
 }
 
+*/
+
+/*  Nicholas' code review from Lab 2
+
+var sweaters = prompt('Do I have 5 sweaters?');
+var lowerSweaters = sweaters.toLowerCase();
+
+if (sweaters === 'yes') {
+  alert('That\'s right!');
+} else if (sweaters === 'no') {
+  alert('No way!');
+} else {
+  alert('Please answer the question.');
+}
 */
