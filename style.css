@@ -1,19 +1,20 @@
 /*Cite: background code learned from CSS-Tricks*/
 body {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 30px 50px;  
-    background: url(https://www.maxpixel.net/static/photo/2x/Drone-Sea-Blue-Birds-Eye-View-Ship-Beach-1897129.jpg);
-    background-color: #68C2E5;
-    background-blend-mode: screen;
-    border: thick solid #3D013C;
+  font-family: 'Courier New', Courier, monospace;
+  border: thick solid #3D013C;
+  margin: 30px 50px;  
+  padding: 20px;
+  background: url(https://www.maxpixel.net/static/photo/2x/Drone-Sea-Blue-Birds-Eye-View-Ship-Beach-1897129.jpg);
+  background-color: #68C2E5;
+  background-blend-mode: screen;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 h2 {
-    text-align: center;
-    color: #60487F;
+  text-align: center;
+  color: #60487F;
 }
 

@@ -14,7 +14,8 @@ var user = prompt('Hi there! What\'s your name?');
 alert('Well, ' + user + ', welcome to my page! I\'ve made some questions so you can get to know a little about me! Let\'s get started.');
 console.log('User\'s name is ' + user);
 
-//Defines variables that includes the possible yes or no answers in arrays
+//Defines variables that includes questions and possible answers
+var questions = ['Question 1: Is my hair color black?', 'Question 2: Do I come from New Zealand?', 'Question 3: Is Monopoly my favorite board game?', 'Question 4: Do you think I have ever lived on an orchard?', 'Question 5: Would I have a steak for lunch?'];
 var yesAnswers = ['yes', 'y', 'sure', 'absolutely'];
 var noAnswers = ['no', 'nope', 'n', 'oh hell no'];
 
@@ -24,7 +25,11 @@ var correct = [];
 //This function will ask Q1
 function askHair(){
 //variable for first question, hair
-  var hair = prompt('Question 1: Is my hair color black?').toLowerCase();
+  var hair = prompt(questions[0]).toLowerCase();
+
+  while(hair === '' || hair === null){
+    hair = prompt('Please have a guess!');
+  }
 
   if (yesAnswers.includes(hair)) {
     alert('That is correct!');
@@ -37,13 +42,15 @@ function askHair(){
   }
   console.log('Response to Question 1 was ' + hair + '.');
 }
-askHair();
-
 
 //This function will ask Q2
 function askCountry(){
   //Variable for second question, countries
-  var country = prompt('Question 2: Do I come from New Zealand?').toLowerCase();
+  var country = prompt(questions[1]).toLowerCase();
+
+  while(country === '' || country === null){
+    country = prompt('Please have a guess!');
+  }
 
   if (yesAnswers.includes(country)) {
     alert('Yes, I am!');
@@ -56,13 +63,15 @@ function askCountry(){
   }
   console.log('Response to Question 2 was ' + country + '.');
 }
-askCountry();
-
 
 //This function will ask Q3
 function askGame(){
   //Third variable for board games question
-  var game = prompt('Question 3: Is Monopoly my favorite board game?').toLowerCase();
+  var game = prompt(questions[2]).toLowerCase();
+
+  while(game === '' || game === null){
+    game = prompt('Please have a guess!');
+  }
 
   if (yesAnswers.includes(game)) {
     alert('No way! My favorite game is Lords of Waterdeep.');
@@ -75,13 +84,15 @@ function askGame(){
   }
   console.log('Response to Question 3 was ' + game + '.');
 }
-askGame();
-
 
 //This function will ask Q4
 function askCherries(){
   //This is the fourth question, about cherries.
-  var cherries = prompt('Question 4: Do you think I have ever lived on an orchard?').toLowerCase();
+  var cherries = prompt(questions[3]).toLowerCase();
+
+  while(cherries === '' || cherries === null){
+    cherries = prompt('Please have a guess!');
+  }
 
   if (yesAnswers.includes(cherries)) {
     alert('Sure have! I lived on a cherry orchard for 6 weeks one summer!');
@@ -94,13 +105,15 @@ function askCherries(){
   }
   console.log('Response to Question 4 was ' + cherries + '.');
 }
-askCherries();
-
 
 //This function will ask Q5
 function askLunch(){
   //This is the last question, about lunch.
-  var lunch = prompt('Question 5: Would I have a steak for lunch?').toLowerCase();
+  var lunch = prompt(questions[4]).toLowerCase();
+
+  while(lunch === '' || lunch === null){
+    lunch = prompt('Please have a guess!');
+  }
 
   if (yesAnswers.includes(lunch)) {
     alert('Steak is a bit heavy. Probably not.');
@@ -113,8 +126,14 @@ function askLunch(){
   }
   console.log('Response to Question 5 was ' + lunch + '.');
 }
-askLunch();
 
+//This is an array of all the functions that will ask the five questions
+var run_questions = [askHair(), askCountry(), askGame(), askCherries(), askLunch()];
+
+//This for loop will go through all the 5 functions, calling them in turn
+for (var q = 0; q < 5; q++){
+  run_questions[q];
+}
 
 // QUESTION 6: Guess a number
 // Planning
@@ -148,7 +167,7 @@ function askPlants(){
     } else if (plants > plantAnswer){
       plants = prompt('That\'s too high. Have another try.');
     } else if (plants == plantAnswer){
-      plants = prompt('That\'s right!');
+      alert('That\'s right!');
       correct.push('Q6');
       console.log(user + ' got Question 6 correct.');
       break; //or use i = 4;
