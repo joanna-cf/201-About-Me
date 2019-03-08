@@ -131,7 +131,7 @@ function askLunch(){
 var run_questions = [askHair(), askCountry(), askGame(), askCherries(), askLunch()];
 
 //This for loop will go through all the 5 functions, calling them in turn
-for (var q = 0; q < 5; q++){
+for (var q = 0; q < run_questions.length; q++){
   run_questions[q];
 }
 
