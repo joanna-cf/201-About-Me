@@ -22,6 +22,7 @@ var rightAnswers = [yesYes, yesYes, noNo, yesYes, noNo];
 var wrongAnswers = [noNo, noNo, yesYes, noNo, yesYes];
 var right = ['That is correct!', 'Yes, I consider myself a Kiwi and moved to the US two years ago!', 'Correct! My favorite game is Lords of Waterdeep', 'Sure have! I lived on a cherry orchard for 6 weeks one summer!', 'You know me well. I would have poke.'];
 var wrong = ['My hair really is black! Look! No greys!', 'Nope! New Zealand is my home country.', 'No way! My favorite game is Lords of Waterdeep.', 'Surprise! I actually have.', 'Steak is a bit heavy. Probably not.'];
+var questionsNum = ['Q1', ' Q2', ' Q3', ' Q4', ' Q5'];
 
 //Create array to log all correct answers.
 var correct = [];
@@ -35,7 +36,7 @@ function askQuestions(){
 
     if (rightAnswers[i].includes(responses)){
       alert(right[i]);
-      correct.push(responses);
+      correct.push(questionsNum[i]);
       console.log(user + ' responded to ' + questions[i] + ' with ' + responses + ' and got it correct.');
     } else if (wrongAnswers[i].includes(responses)){
       alert(wrong[i]);
@@ -80,7 +81,7 @@ function askPlants(){
       plants = prompt('That\'s too high. Have another try.');
     } else if (plants == plantAnswer){
       alert('That\'s right!');
-      correct.push(plantAnswer);
+      correct.push(' Q6');
       console.log(user + ' got Question 6 correct.');
       break; //or use i = 4;
     } else {
@@ -101,7 +102,7 @@ alert('I actually have ' + plantAnswer + ' plants in my house!');
 //Displays correct answer when gets it correct OR used up all tries
 
 //This is an array of my languages
-var my_languages = ['english', 'chinese', 'french']; 
+var my_languages = ['english', 'chinese', 'mandarin', 'french']; 
 var i = 1;
 //This is the message to show if the user gets the language correct or they use up the tries.
 var possible_languages = 'The correct languages are English, Chinese, and French!';
@@ -109,7 +110,7 @@ var possible_languages = 'The correct languages are English, Chinese, and French
 //This function will ask Q7
 function askLanguage() {
   //This is the prompt for question 7, making sure it's in lower case to match the array.
-  var language = prompt('Question 7: Which languages do I speak? Have a guess!').toLowerCase();
+  var language = prompt('Question 7: I speak a few languages. Can you guess one of those languages?').toLowerCase();
   var response = 'Response ' + i + ' to Question 7 was ' + language + '.';
 
   //This is a loop to display different messages depending on what the response is.
@@ -119,19 +120,25 @@ function askLanguage() {
     switch(language){
     case my_languages[0]:
       alert('Tally ho!');
-      correct.push(language);
+      correct.push(' Q7');
       console.log(user + ' got Question 7 correct.');
       i = 9;
       break;
     case my_languages[1]:
       alert('Ni hao!');
-      correct.push('Q7');
+      correct.push(' Q7');
       console.log(user + ' got Question 7 correct.');
       i = 9;
       break;
     case my_languages[2]:
+      alert('Ni hao!');
+      correct.push(' Q7');
+      console.log(user + ' got Question 7 correct.');
+      i = 9;
+      break;
+    case my_languages[3]:
       alert('Bonjour!');
-      correct.push('Q7');
+      correct.push(' Q7');
       console.log(user + ' got Question 7 correct.');
       i = 9;
       break;
@@ -143,13 +150,13 @@ function askLanguage() {
   //Logs the final response. 
   console.log(response);
   //Final message before it goes to the home page.
-  alert('All done!' + possible_languages);
+  alert('All done! ' + possible_languages);
 }
 askLanguage();
 
 //Alerts user of how many questions they got correct
 alert(user + ', you got ' + correct.length + ' out of 7 correct! Good job!');
-console.log('The total number of correct answers is ' + correct.length + '. ');
+console.log('The total number of correct answers is ' + correct.length + '. ' + user + ' got ' + correct + ' correct.');
 
 //This was my original code, before we looked at how to use for-loops to go through the first 5 questions
 // //This function will ask Q1
