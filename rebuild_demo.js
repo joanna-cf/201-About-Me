@@ -1,5 +1,7 @@
 'use strict';
 
+// The following code was the project re-written by Nicholas on Class 5
+
 /* PLANNING
 Conditions
   if answer is right or wrong
@@ -47,7 +49,7 @@ for(var i = 0; i < questions_array.length; i++){
   console.log('given :' + sweaters + ', correct: yes');
 }
 
-// intiial code before it was put in a for loop.
+// intiial code before it was put in a for loop. Also from Class 5
 // var sweaters = prompt('Do I like sweaters?');
 // if(sweaters === 'yes'){
 //   alert('of course, next question.');
@@ -82,3 +84,120 @@ for(var i = 0; i < questions_array.length; i++){
 // complex switch (require us to have a static value)
 // arrays of possibilities
 // ask for a month number
+
+/* Nicholas' Lab 3 Code review
+
+Logging tries
+alert('you look ' + ++i + ' tries');
+
+Have HTML appear before all prompts:
+Best practice: put it on the page, don't pop it up.
+If we have to use it: put a button, if click button, then quiz pops up
+
+      var guessed_florida = false; //haven't guessed florida correct yet
+      //need something to check
+
+      if (seven === 'florida' && guessed_florida === false){
+        alert();
+        guessed_florida = true; // won't be able to guess this again, has it has become true, won't go into this code block again
+      } else if (seven === 'washington' && guessed_washington === false){
+        alert();
+        guessed_washington = true;
+      }
+
+      if (guessed_florida && guessed_washington){
+        alert();
+        break;
+      }
+
+Nick's code from scratch
+While loops can have more complex conditionals than for loops
+
+var answers = ['f', 'w', 'c', 'h'];
+// do this so we can count down the number of guesses left
+var past_correct_guesses = [];
+var guesses = 6;
+var answered_correct = false;
+
+//while guesses left and use not answered correctly yet (answered correct === false)
+while (guesses > 0 && answered_correct === false}{ //every single guess
+  debugger;
+  var state_lived = prompt('You have ' + guesses + ' guesses left. What is...');  
+  var is_a_cheater = false;
+
+  //DONE: are they are cheater e.g. check florida twice
+  for (var k = 0; k < past_correct_guesses. length; k++){
+    if(state_lived === past_correct_guesses [k]){
+      is_a_cheater = true;
+    }
+  }
+
+  // DONE: don't check florida again
+  // TODO: check washington
+  for (var j = 0; j <answers.length; j++){ //checks every single answer
+    // check for correct answer
+    if(state_lived === answers[j] && is_a_cheater === false){  //if one matches, triggers statement
+      alert('Good job, you have 1 more state to find');
+      past_correct_guesses.push(state_lived);
+      guesses--;
+    }
+  }
+
+ if (is_a_cheater){
+    alert('stop cheater, you lose two guesses');
+    guesses -= 2;
+  }
+  
+  //TODO: to fix
+  else {
+    alert('nope, try again');
+    guesses--;
+  }
+}
+*/
+
+/* Nicholas lab 3 demo
+Question that accepts a number
+see if answer was too high or two low
+ask again
+limited number of questions
+
+prompt user for a guess
+check if user is right
+check if user writes a number
+while the guess is too low or high, ask again
+
+
+var guesses = 0;
+var number = prompt('Guess how many Christmas sweaters I have');//stretch goal
+guesses++;
+
+while((number > 8 || number < 8) && guesses <3){
+  if (number > 8){
+    alert('too high');
+  }
+  number = prompt('Guess again');
+  guesses++;
+}
+
+if(guesses <3){
+  alert('great job');
+} else {
+  alert('bad job');
+}
+
+*/
+
+/*  Nicholas' Lab 2 Code Review
+
+var sweaters = prompt('Do I have 5 sweaters?');
+var lowerSweaters = sweaters.toLowerCase();
+
+if (sweaters === 'yes') {
+  alert('That\'s right!');
+} else if (sweaters === 'no') {
+  alert('No way!');
+} else {
+  alert('Please answer the question.');
+}
+*/
